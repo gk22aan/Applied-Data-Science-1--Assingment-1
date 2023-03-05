@@ -4,6 +4,7 @@ Created on Fri Mar  3 03:43:27 2023
 
 @author: admin
 """
+# Import Python Packages
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -19,7 +20,7 @@ def Create_plot_line(Year,Type,Label,Color):
     plt.ylabel('Data in Percentage of Total GDP $\longrightarrow$')
     plt.legend(loc='upper right', prop={'size': 11})
 
-# Read data from CSV file and selected the data for ploting
+# Read data from CSV file and select the data for ploting
 print(Create_plot_line.__doc__)
 BD_economic_indicators = pd.read_csv('BD_economic_indicators.csv', )
 BD_economic_indicators

@@ -4,24 +4,24 @@ Created on Sun Mar  5 18:00:26 2023
 
 @author: admin
 """
-import numpy as np
+# Import Python Packages
 import pandas as pd
 import matplotlib.pyplot as plt
 
-#Read CSV file
+# Function to pass color of the Bar
+def bar_color(color):
+     ''' This function can be used to give custom colour to the bar of Bar plot.
+         color parameters to be passed while calling this function'''
+     for i in range(20):
+          barlist[i].set_color(color)
+
+# Read CSV file
 Olympic_Data = pd.read_csv('summer.csv',  )
 Country_Data = pd.read_csv('dictionary.csv',)
 print(Olympic_Data.head());
 print(Country_Data.head())
 
-# Function
-def bar_color(color):
-     ''' This function can be used to give custom colour to the bar of Bar plot
-         color parameters to be passed while calling this function'''
-     for i in range(20):
-          barlist[i].set_color(color)
-
-#Create Data for Plotting
+# Create Data for Plotting
 Olympics_Data_Final = Olympic_Data.merge(Country_Data, left_on='Country', right_on='Code', how='inner')
 Olympics_Data_Final
 Olympics_Data_Final = Olympics_Data_Final.drop(columns=['Country_x']);
@@ -34,11 +34,11 @@ Total_Medals = Total_Medals.reset_index(drop=False)
 Total_Medals = Total_Medals.sort_values(by = ['Medal'], ascending = False)
 Total_Medals = Total_Medals.head(20)
 
-#Plot data
+#Plot data as Bar Plot
 with plt.style.context('ggplot'):
     fig2=plt.figure(figsize=(10, 8), dpi= 80, facecolor='w', edgecolor='blue')
     barlist = plt.bar('Country','Medal',data = Total_Medals)
-    # Callfunction to define color of BAR in Bar plot.
+    # Call function to define color of BAR in Bar plot.
     bar_color('green')
     barlist[0].set_color('Yellow')
     barlist[19].set_color('red')
